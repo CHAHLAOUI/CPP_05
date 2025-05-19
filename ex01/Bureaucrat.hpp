@@ -5,6 +5,9 @@
 #include <exception>
 #include <string>
 
+#include "Form.hpp"
+
+class Form;
 class Bureaucrat
 {
 
@@ -36,6 +39,8 @@ class Bureaucrat
 				}
 		};
 		const std::string getName() const;
+
+		void signForm(Form &form);
 		int getGrade() const;
 
 };

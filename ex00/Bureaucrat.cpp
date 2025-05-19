@@ -6,7 +6,7 @@
 /*   By: achahlao <achahlao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 17:26:31 by achahlao          #+#    #+#             */
-/*   Updated: 2025/05/09 17:36:44 by achahlao         ###   ########.fr       */
+/*   Updated: 2025/05/19 17:09:09 by achahlao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
     }
     return (*this);
 }
-
-
-
 
 void	Bureaucrat::incrementGrade() {
 
