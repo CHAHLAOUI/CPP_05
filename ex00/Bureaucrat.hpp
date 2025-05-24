@@ -6,7 +6,7 @@
 /*   By: achahlao <achahlao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 17:26:19 by achahlao          #+#    #+#             */
-/*   Updated: 2025/05/09 17:26:20 by achahlao         ###   ########.fr       */
+/*   Updated: 2025/05/17 17:51:14 by achahlao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <exception>
+
 #include <string>
 
 class Bureaucrat
