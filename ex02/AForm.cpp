@@ -60,16 +60,23 @@ void AForm::beSigned(const Bureaucrat &_bureaucrat) {
 
 
 
-void	Bureaucrat::signForm(AForm &ob) {
-	if (ob.get_is_Sign() == false)
-		ob.beSigned(*this);
-	else {
-		std::cout << "bureaucrat " << this->getName() << " before signed " << ob.get_name_Form() << std::endl;
-		return ;
-	}
-	std::cout << "bureaucrat " << this->getName() << " signed " << ob.get_name_Form() << std::endl;
-}
+// void	AForm::signForm(AForm &ob) {
+// 	if (ob.get_is_Sign() == false)
+// 		ob.beSigned(*this);
+// 	else {
+// 		std::cout << "bureaucrat " << this->getName() << " before signed " << ob.get_name_Form() << std::endl;
+// 		return ;
+// 	}
+// 	std::cout << "bureaucrat " << this->getName() << " signed " << ob.get_name_Form() << std::endl;
+// }
 
+void AForm::checkExecute(Bureaucrat const& executor) const
+{
+    if (!this->get_is_Sign())
+        throw AForm::FormNotSignedException();
+    if (executor.getGrade() > this->get_execut_Grad())
+        throw AForm::GradeTooLowException();
+}
 
 AForm::~AForm()
 { }

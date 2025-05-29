@@ -1,57 +1,47 @@
-// ShrubberyCreationForm.cpp
 #include "ShrubberyCreationForm.hpp"
-#include "AForm.hpp"
-#include <fstream>
 #include <iostream>
+#include <fstream>
 
-// Constructor
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
     : AForm("ShrubberyCreationForm", 145, 137), target(target) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
     : AForm(other), target(other.target) {}
 
-ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other) {
+ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other)
+{
     if (this != &other)
-        this->target = other.target;
+        target = other.target;
     return *this;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-// void ShrubberyCreationForm::execute(Bureaucrat const& executor) const {
-//     if (!getIsSigned())
-//         throw AForm::NotSignedException();
-//     if (executor.getGrade() > getGradeToExecute())
-//         throw AForm::GradeTooLowException();
+void ShrubberyCreationForm::execute(Bureaucrat const& executor) const
+{
+    checkExecute(executor);  // تتأكد واش الفورم signed والبيروقراط عندو grade كافي
 
-//     std::ofstream outFile(target + "_shrubbery");
-//     if (!outFile) {
-//         std::cerr << "Error: couldn't create the file.\n";
-//         return;
-//     }
+    std::ofstream file(target + "_shrubbery");
+    if (!file)
+    {
+        std::cerr << "Error: Cannot create file!" << std::endl;
+        return;
+    }
 
-//     outFile <<
-//         "      🌲\n"
-//         "     🌲🌲\n"
-//         "    🌲🌲🌲\n"
-//         "   🌲🌲🌲🌲\n"
-//         "      ||\n"
-//         "      ||\n";
+    file << "     ccee88oo\n"
+         << "  C8O8O8Q8PoOb o8oo\n"
+         << " dOB69QO8PdUOpugoO9bD\n"
+         << "CgggbU8OU qOp qOdoUOdcb\n"
+         << "    6OuU  /p u gcoUodpP\n"
+         << "      \\\\//  /douUP\n"
+         << "        \\\\////\n"
+         << "         |||/\\\n"
+         << "         |||\\/\n"
+         << "         |||||\n"
+         << "   .....//||||\\....\n";
 
-//     outFile.close();
-//     std::cout << "Shrubbery created in file: " << target + "_shrubbery" << std::endl;
-// }
-
-void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-
-	AForm::execute(executor);
-
-	try {
-
-		
-	} catch (std::ios_base::failure& e) {
-		std::cout << "failed to create file because " << e.what() << "\n";
-	}	
-
+    file.close();
+    std::cout << "Shrubbery created in " << target + "_shrubbery" << std::endl;
 }
+
+

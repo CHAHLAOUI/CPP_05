@@ -1,21 +1,23 @@
+// RobotomyRequestForm.cpp
+
 #include "RobotomyRequestForm.hpp"
 #include "AForm.hpp"
-#include <cstdlib>  // for rand()
-#include <ctime>    // for time()
-#include <iostream>
 
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
-    : AForm("RobotomyRequestForm", 72, 45), target(target) {
+// Constructor
+RobotomyRequestForm::RobotomyRequestForm(const std::string& _target)
+    : AForm("RobotomyRequestForm", 72, 45), target(_target) {
+    std::srand(std::time(0));  // Seed rand()
 }
 
-
+// Destructor
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-
+// Copy constructor
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
     : AForm(other), target(other.target) {}
 
+// Assignment operator
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other) {
     if (this != &other) {
         AForm::operator=(other);
@@ -24,19 +26,15 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
     return *this;
 }
 
-// execute function
+// Execute function
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
-    // Check if form is signed and executor has the right grade
-    if (!this->getIsSigned())
-        throw AForm::NotSignedException();
-    if (executor.getGrade() > this->getGradeToExecute())
-        throw AForm::GradeTooLowException();
+    AForm::execute(executor);  // Check signature and executor grade
 
-    std::cout << "🔧 BZZZZZZZZZZZ... (drilling noise)" << std::endl;
+    std::cout << "* drilling noises *" << std::endl;
 
-    // Randomize robotomy result
-    if (std::rand() % 2)
-        std::cout << "🤖 " << this->target << " has been robotomized successfully!" << std::endl;
-    else
-        std::cout << "❌ Robotomy failed on " << this->target << "." << std::endl;
+    if (rand() % 2 == 0) {
+        std::cout << target << " has been robotomized successfully!" << std::endl;
+    } else {
+        std::cout << "Robotomy failed on " << target << "." << std::endl;
+    }
 }
