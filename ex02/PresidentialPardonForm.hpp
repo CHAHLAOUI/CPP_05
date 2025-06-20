@@ -1,30 +1,22 @@
-// PresidentialPardonForm.hpp
-
 #ifndef PRESIDENTIALPARDONFORM_HPP
 #define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
-#include <string>
+#include <iostream>
 
-class PresidentialPardonForm : public AForm {
+class PresidentialPardonForm : public AForm
+{
 private:
     std::string target;
 
 public:
-    // Constructor
-    PresidentialPardonForm(const std::string& _target);
-
-    // Destructor
+    PresidentialPardonForm();
+    PresidentialPardonForm(const std::string& target);
+    PresidentialPardonForm(const PresidentialPardonForm& other);
+    PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
     ~PresidentialPardonForm();
 
-    // Copy constructor
-    PresidentialPardonForm(const PresidentialPardonForm& other);
-
-    // Assignment operator
-    PresidentialPardonForm& operator=(const PresidentialPardonForm& other);
-
-    // Overridden execute function
-    void execute(const Bureaucrat& executor) const;
+    void execute(Bureaucrat const& executor) const;
 };
 
 #endif

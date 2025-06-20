@@ -6,7 +6,7 @@
 /*   By: achahlao <achahlao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 17:26:19 by achahlao          #+#    #+#             */
-/*   Updated: 2025/05/17 17:51:14 by achahlao         ###   ########.fr       */
+/*   Updated: 2025/06/18 10:15:28 by achahlao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 #include <iostream>
 #include <exception>
-
 #include <string>
+
 
 class Bureaucrat
 {
@@ -31,29 +31,36 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat& obj);
 		Bureaucrat& operator=(const Bureaucrat& obj);
 		~Bureaucrat();
-
+		
 		void  incrementGrade();
 		void  decrementGrade();
-		class GradeTooHighException : public std::exception {
+		
+		// exeptiom 
+		class GradeTooHighException : public std::exception
+		{
 			public:
-				const char* what() const throw() {
+				const char* what() const throw()
+				{
 					return "Grade too high!";
 				}
 		};
 	
-		class GradeTooLowException : public std::exception {
+		class GradeTooLowException : public std::exception 
+		{
 			public:
 				const char* what() const throw()
 				{
 					return "Grade too low!";
 				}
 		};
-		const std::string getName() const;
-		int getGrade() const;
+		
+		// getter de name et Grad 
+		const std::string	getName() const;
+		int					getGrade() const;
 
 };
 
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs);
+std::ostream&	operator<<(std::ostream& o, const Bureaucrat & obj) ;
 
 #endif

@@ -22,8 +22,11 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& obj);
 		~Bureaucrat();
 
+		// incr o decrrement G
 		void  incrementGrade();
 		void  decrementGrade();
+
+		// exeption de High o Low
 		class GradeTooHighException : public std::exception {
 			public:
 				const char* what() const throw() {
@@ -38,14 +41,17 @@ class Bureaucrat
 					return "Grade too low!";
 				}
 		};
-		const std::string getName() const;
 
+		// getter de name o note
+		const std::string	getName() const;
+		int					getGrade() const;
+
+		// fonction pour sign un forme 
 		void signForm(Form &form);
-		int getGrade() const;
 
 };
 
 
-std::ostream& operator<<(std::ostream& os, const Bureaucrat& rhs);
+std::ostream&	operator<<(std::ostream& o, const Bureaucrat & obj) ;
 
 #endif

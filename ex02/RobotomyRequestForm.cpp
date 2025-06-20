@@ -1,40 +1,29 @@
-// RobotomyRequestForm.cpp
-
 #include "RobotomyRequestForm.hpp"
-#include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45), target("default") {}
 
-// Constructor
-RobotomyRequestForm::RobotomyRequestForm(const std::string& _target)
-    : AForm("RobotomyRequestForm", 72, 45), target(_target) {
-    std::srand(std::time(0));  // Seed rand()
-}
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
+    : AForm("RobotomyRequestForm", 72, 45), target(target) {}
 
-// Destructor
-RobotomyRequestForm::~RobotomyRequestForm() {}
-
-// Copy constructor
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
     : AForm(other), target(other.target) {}
 
-// Assignment operator
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other) {
-    if (this != &other) {
-        AForm::operator=(other);
-        this->target = other.target;
-    }
+    if (this != &other)
+        target = other.target;
     return *this;
 }
 
-// Execute function
+RobotomyRequestForm::~RobotomyRequestForm() {}
+
 void RobotomyRequestForm::execute(const Bureaucrat& executor) const {
-    AForm::execute(executor);  // Check signature and executor grade
-
-    std::cout << "* drilling noises *" << std::endl;
-
-    if (rand() % 2 == 0) {
-        std::cout << target << " has been robotomized successfully!" << std::endl;
-    } else {
-        std::cout << "Robotomy failed on " << target << "." << std::endl;
-    }
+    checkExecute(executor);
+    std::cout << "🔩 Bzzzzzzzz.... 🔊 Drilling noises..." << std::endl;
+    std::srand(std::time(0));
+    if (std::rand() % 2)
+        std::cout << "✅ " << target << " has been robotomized successfully!" << std::endl;
+    else
+        std::cout << "❌ Robotomy failed for " << target << "." << std::endl;
 }
+

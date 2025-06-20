@@ -1,58 +1,94 @@
-#include "test.hpp"
+// #ifndef H_HPP 
+// #define H_HPP 
 
-etudent::etudent(){}
+#include <iostream>
 
-etudent::etudent(int _id, std::string _name, std::string _prenom): name(_name) , prenom(_prenom)
+
+
+
+
+
+int main()
 {
-    this->id =_id;
-}
-
-
-void etudent::print()
-{
-    std::cout << "id is :" << name << "\nname is :" << name << "\nprenom is :" << prenom << std::endl;
-}
-etudent::~etudent() {}
-
-
-
-//---------------------------------------------------------------------------------------------------------//
-
-
-
-tabetudent::tabetudent(int _size)
-{
-    this->size = _size;
-    this->courant_size = 0;
-    this->Tab = new etudent[_size];
-}
-void tabetudent::Add(etudent a)
-{
-    if(courant_size < size)
-        Tab[courant_size++] = a;
-    else
-        throw "chahlaoui";
-}
-
-void tabetudent::printTaille()
- {
-    std::cout << "Taille courante : " << courant_size << std::endl;
-}
-
-tabetudent::~tabetudent()
-{
+    int hour;
+    try
+    {
+        std::cout << "Hello Chahlaoui" << std::endl;
+        std::cin >>  hour;
+        if (hour < 0)
+            throw "error";
+        std::cout << "time is : " << hour << ": 00" << std::endl;
+    }
+    catch(...)
+    {
+        std::cout << "on : erroe" << std::endl;
+    }
+    std::cout << "hahahahahahahahahahahahahahah" << std::endl;
 }
 
 
 
-//---------------------------------------------------------------------------------------------------------//
 
-expt::expt(std::string str)
-{
 
-}
 
-std::string expt::getMsg()
-{
-    return (msg);
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// class etudent
+// {
+//     private:
+//         int id;
+//         std::string name;
+//         std::string prenom;
+//     public:
+//         etudent();
+//         etudent(int _id, std::string _name, std::string _prenom);
+//         void print();
+//         ~etudent();
+
+// };
+
+
+
+
+
+// class tabetudent
+// {
+// private:
+//     etudent *Tab;
+//     int     size;
+//     int     courant_size;
+// public:
+//     tabetudent(int _size);
+
+//     void Add(etudent a) ;
+//     void printTaille();
+//     ~tabetudent();
+// };
+
+
+
+// class expt
+// {
+//     private:
+//         std::string msg;
+//     public:
+//         expt(std::string);
+//         std::string getMsg();
+// }
+
+
+
+
+// #endif

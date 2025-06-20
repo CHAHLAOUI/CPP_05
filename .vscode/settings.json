@@ -40,6 +40,7 @@
         "type_traits": "cpp",
         "utility": "cpp",
         "format": "cpp",
+        "fstream": "cpp",
         "initializer_list": "cpp",
         "iomanip": "cpp",
         "iosfwd": "cpp",
@@ -56,8 +57,7 @@
         "text_encoding": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp",
-        "fstream": "cpp"
+        "variant": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }

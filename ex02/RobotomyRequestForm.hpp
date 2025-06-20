@@ -1,30 +1,24 @@
-// RobotomyRequestForm.hpp
-
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
-#include <iostream>
+
 #include "AForm.hpp"
+#include <cstdlib>
+#include <ctime>
+#include <iostream>
 
-
-class RobotomyRequestForm : public AForm {
+class RobotomyRequestForm : public AForm
+{
 private:
     std::string target;
 
 public:
-    // Constructor
-    RobotomyRequestForm(const std::string& _target);
-
-    // Destructor
+    RobotomyRequestForm();
+    RobotomyRequestForm(const std::string& target);
+    RobotomyRequestForm(const RobotomyRequestForm& other);
+    RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
     ~RobotomyRequestForm();
 
-    // Copy constructor
-    RobotomyRequestForm(const RobotomyRequestForm& other);
-
-    // Assignment operator
-    RobotomyRequestForm& operator=(const RobotomyRequestForm& other);
-
-    // Overridden execute function
-    void execute(const Bureaucrat& executor) const;
-};
+    void execute(Bureaucrat const& executor) const;
+}; 
 
 #endif

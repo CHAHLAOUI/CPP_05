@@ -1,31 +1,26 @@
-// PresidentialPardonForm.cpp
-
 #include "PresidentialPardonForm.hpp"
-#include <iostream>
+#include "Bureaucrat.hpp"
 
-// Constructor
-PresidentialPardonForm::PresidentialPardonForm(const std::string& _target)
-    : AForm("PresidentialPardonForm", 25, 5), target(_target) {}
+PresidentialPardonForm::PresidentialPardonForm() : AForm("PresidentialPardonForm", 25, 5), target("default") {}
 
-// Destructor
-PresidentialPardonForm::~PresidentialPardonForm() {}
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
+    : AForm("PresidentialPardonForm", 25, 5), target(target) {}
 
-// Copy constructor
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)
     : AForm(other), target(other.target) {}
 
-// Assignment operator
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other) {
-    if (this != &other) {
-        AForm::operator=(other);
+    if (this != &other)
         target = other.target;
-    }
     return *this;
 }
 
-// Execute function
-void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
-    AForm::execute(execu tor); // Check if the form is signed and the executor's grade
+PresidentialPardonForm::~PresidentialPardonForm() {}
 
-    std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
+    checkExecute(executor);
+    std::cout << "🤝 " << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
+
+
+
