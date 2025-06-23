@@ -1,9 +1,9 @@
-CC		:= c++
-NAME	:= AForm
-HEADS	:= $(shell find . -name "*.hpp")
-SRCS	:= $(shell find . -name "*.cpp")
-OBJS	:= $(SRCS:.cpp=.o)
-CFLAGS	:= -Wall -Werror -Wextra -std=c++98
+CC		= c++
+NAME	= AForm
+HEADS	= AForm.hpp Bureaucrat.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
+SRCS	= AForm.cpp Bureaucrat.cpp main.cpp PresidentialPardonForm.cpp RobotomyRequestForm.cpp ShrubberyCreationForm.cpp
+OBJS	= $(SRCS:.cpp=.o)
+CFLAGS	= -Wall -Werror -Wextra -std=c++98
 
 all		: $(NAME)
 

@@ -28,8 +28,8 @@ int main()
     rrf->execute(boss);
     if (rrf)
     {
-        std::cout << *rrf << std::endl;  // Affiche les infos du formulaire
-        delete rrf;  // Libération de la mémoire
+        std::cout << *rrf << std::endl; 
+        delete rrf;
     }
 
     return 0;

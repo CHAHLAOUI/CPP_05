@@ -6,7 +6,7 @@
 /*   By: achahlao <achahlao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/15 16:23:40 by achahlao          #+#    #+#             */
-/*   Updated: 2025/06/20 21:25:19 by achahlao         ###   ########.fr       */
+/*   Updated: 2025/06/22 09:32:14 by achahlao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ Form::Form(const std::string& name, int signGrade, int exec_Grade)
 }
 
 // Copy
+
 Form::Form(const Form& F)
     : name_Form(F.name_Form)
     , sign_Grad(F.sign_Grad)
@@ -36,10 +37,10 @@ Form::Form(const Form& F)
 {}
 
 
-Form& Form::operator=(const Form& F)
+Form& Form::operator=(const Form& Forme)
 {
-    if (this != &F)
-        this->is_Sign = F.is_Sign;
+    if (this != &Forme)
+        this->is_Sign = Forme.is_Sign;
     return (*this);
 }
 
@@ -48,12 +49,29 @@ Form::~Form() {}
 
 // -----------------------Getters --------------------------//
 
-const std::string& Form::getName()      const        { return name_Form; }
-bool               Form::isSigned()     const      { return is_Sign; }
-int                Form::getSignGrade() const  { return sign_Grad; }
-int                Form::getExecGrade() const  { return execut_Grad; }
+const std::string& Form::getName()      const
+{
+    return name_Form;
+}
+
+bool               Form::isSigned()     const
+{
+    return is_Sign;
+}
+
+int                Form::getSignGrade() const
+{
+    return sign_Grad;
+}
+
+int                Form::getExecGrade() const
+{
+    return execut_Grad;
+}
 
 
+
+    // 
 void Form::beSigned(const Bureaucrat& b)
 {
     if (b.getGrade() > sign_Grad)

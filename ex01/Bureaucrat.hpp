@@ -23,10 +23,12 @@ class Bureaucrat
 		~Bureaucrat();
 
 		// incr o decrrement G
+
 		void  incrementGrade();
 		void  decrementGrade();
 
-		// exeption de High o Low
+		// High o Low
+
 		class GradeTooHighException : public std::exception {
 			public:
 				const char* what() const throw() {

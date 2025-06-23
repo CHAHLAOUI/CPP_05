@@ -1,9 +1,9 @@
-CC		:= c++
-NAME	:= Bureaucrat
-HEADS	:= $(shell find . -name "*.hpp")
-SRCS	:= $(shell find . -name "*.cpp")
-OBJS	:= $(SRCS:.cpp=.o)
-CFLAGS	:= -Wall -Werror -Wextra -std=c++98
+CC		= c++
+NAME	= Bureaucrat
+HEADS	= Bureaucrat.hpp
+SRCS	= Bureaucrat.cpp  main.cpp
+OBJS	= $(SRCS:.cpp=.o)
+CFLAGS	= -Wall -Werror -Wextra -std=c++98
 
 all		: $(NAME)
 

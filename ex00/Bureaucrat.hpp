@@ -6,7 +6,7 @@
 /*   By: achahlao <achahlao@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 17:26:19 by achahlao          #+#    #+#             */
-/*   Updated: 2025/06/18 10:15:28 by achahlao         ###   ########.fr       */
+/*   Updated: 2025/06/23 10:39:53 by achahlao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class Bureaucrat
 		void  incrementGrade();
 		void  decrementGrade();
 		
-		// exeptiom 
+		// exeptiom
 		class GradeTooHighException : public std::exception
 		{
 			public:
@@ -54,13 +54,13 @@ class Bureaucrat
 				}
 		};
 		
-		// getter de name et Grad 
+		// getter de name et Grad
 		const std::string	getName() const;
 		int					getGrade() const;
 
 };
 
+std::ostream&	operator<<(std::ostream& o, const Bureaucrat & obj);
 
-std::ostream&	operator<<(std::ostream& o, const Bureaucrat & obj) ;
 
 #endif

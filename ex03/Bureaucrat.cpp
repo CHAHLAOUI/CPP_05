@@ -3,12 +3,13 @@
 Bureaucrat::Bureaucrat() : name("Security") , note(150)
 {}
 
-Bureaucrat::Bureaucrat(std::string _name, int _note) : name(_name), note(_note)
+Bureaucrat::Bureaucrat(std::string _name, int _note) : name(_name)
 {
-    if (note < 1)
+    if (_note < 1)
         throw GradeTooHighException();
-    else if (note > 150)
+    else if (_note > 150)
         throw GradeTooLowException();
+    note = _note;
 }
 
 
@@ -19,7 +20,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& obj) : name(obj.getName())
 }
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
 {
-    if(this != &obj)
+        
     {
         std::cout << "contructor de = " << std::endl;
         note = obj.getGrade();
@@ -31,32 +32,29 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj)
 
 
 
-void	Bureaucrat::incrementGrade() {
-
-	if (note > 1)
-		note++;
-	else
-		throw GradeTooHighException();
+void Bureaucrat::incrementGrade() {
+    if (note <= 1)
+        throw GradeTooHighException();
+    note--;
 }
 
-void	Bureaucrat::decrementGrade() {
-	if (note < 150)
-		note--;
-	else
-		throw GradeTooLowException();
+void Bureaucrat::decrementGrade() {
+    if (note >= 150)
+        throw GradeTooLowException();
+    note++;
 }
-
-
 
 
 Bureaucrat::~Bureaucrat() {}
 
 
-const std::string Bureaucrat::getName() const {
+const std::string Bureaucrat::getName() const
+{
     return (name);
 }
 
-int Bureaucrat::getGrade() const {
+int Bureaucrat::getGrade() const
+{
     return (note);
 }
 

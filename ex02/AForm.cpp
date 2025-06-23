@@ -17,27 +17,28 @@ AForm::AForm(const AForm& other)
 AForm& AForm::operator=(const AForm& obj) {
     if (this != &obj) {
         this->is_Sign = obj.is_Sign;
-        // this->_target = obj._target;
+
     }
     return *this;
 }
 
 AForm::~AForm() {}
 
-const std::string& AForm::getName() const {
-    return name_Form;
+const std::string& AForm::getName() const
+{
+    return (name_Form);
 }
 
 bool AForm::isSigned() const {
-    return is_Sign;
+    return (is_Sign);
 }
 
 int AForm::getGradeSign() const {
-    return sign_Grad;
+    return (sign_Grad);
 }
 
 int AForm::getGradeExec() const {
-    return execut_Grad;
+    return (execut_Grad);
 }
 
 // std::string AForm::getTarget() const {
@@ -64,6 +65,7 @@ std::ostream& operator<<(std::ostream& o, const AForm& obj)
     o << "Form Name: " << obj.getName() << "\n";
     o << "Sign Grade: " << obj.getGradeSign() << "\n";
     o << "Execution Grade: " << obj.getGradeExec() << "\n";
-    o << "Is Signed: " << (obj.isSigned() ? "Yes" : "No") << "\n";
-    return o;
+    o << " Signed : " << ((obj.isSigned()) ? "OUI" : "Non") << "\n";
+    return (o);
 }
+
